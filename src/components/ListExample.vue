@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
+import ListTransition from "@/components/ListTransition.vue";
 
 const showMenu = ref(false);
 </script>
@@ -10,29 +11,11 @@ const showMenu = ref(false);
     Menu
   </button>
 
-  <Transition>
+  <ListTransition>
     <ul v-if="showMenu">
       <li>Item 1</li>
       <li>Item 2</li>
       <li>Item 3</li>
     </ul>
-  </Transition>
+  </ListTransition>
 </template>
-
-<style scoped>
-/* we will explain what these classes do next! */
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease, transform .5s ease;
-}
-
-.v-enter-from {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
-.v-leave-to {
-  opacity: 0;
-  transform: translateY(10px);
-}
-</style>
